@@ -33,7 +33,7 @@ void insert_value()
 		printf("\nEnter a value : ");
 		scanf("%d",&value);
 		push(value);
-		printf("\nDo you want to insert another node into the queue(y/n)?\n");
+		printf("\nDo you want to insert another node into the stack(y/n)?\n");
 		ch=getch();
 		if(ch=='Y' || ch=='y')
 		{
