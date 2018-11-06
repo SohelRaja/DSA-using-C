@@ -249,6 +249,7 @@ void delete_beg(nd *ptr)
 	if(start==NULL)
 	{
 		printf("\nThere is no node.\n");
+		option();
 	}
 	else
 	{
@@ -298,6 +299,10 @@ void delete_node(nd *ptr)
 		scanf("%d",&loca);
 		if(loca==total)
 		{
+			if(start->next==NULL)
+			{
+				delete_beg(start);
+			}
 			for(i=1;i<loca;i++)
 			{
 				pre=ptr;
