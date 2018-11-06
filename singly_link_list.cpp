@@ -252,7 +252,10 @@ void delete_beg(nd *ptr)
 	}
 	else
 	{
-		start=start->next;
+		if(total == 1)
+			start=NULL;
+		else
+			start=start->next;
 		printf("\nNode is deleted from end.\nValue %d is Deleted.\n",ptr->data);
 		free(ptr);
 		printf("\nTotal Number of nodes remaining = %d\n\n",--total);
@@ -307,15 +310,21 @@ void delete_node(nd *ptr)
 		}
 		else
 		{
-			for(i=1;i<loca;i++)
+			if(loca == 1)
+				delete_beg(start);
+			else
 			{
-				pre=ptr;
-				ptr=ptr->next;
+				for(i=1;i<loca;i++)
+				{
+					pre=ptr;
+					ptr=ptr->next;
+				}
+				pre->next=ptr->next;
+				printf("\nSpecifaied Node as well as Value %d is deleted.",ptr->data);
+				free(ptr);
+				printf("\nTotal Number of nodes remaining = %d\n\n",--total);
+		
 			}
-			pre->next=ptr->next;
-			printf("\nSpecifaied Node as well as Value %d is deleted.",ptr->data);
-			free(ptr);
-			printf("\nTotal Number of nodes remaining = %d\n\n",--total);
 		}
 	}
 	option();
